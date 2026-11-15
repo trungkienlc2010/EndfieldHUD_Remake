@@ -1,0 +1,38 @@
+<UserControl x:Class="EndfieldHud.Modules.ClipboardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="28,16">
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button x:Name="PauseButton" Content="TẠM DỪNG" Style="{StaticResource HudButton}" Click="Pause_Click"/>
+                <Button Content="XOÁ HẾT" Style="{StaticResource HudButton}" Margin="8,0,0,0" Click="Clear_Click"/>
+            </StackPanel>
+            <TextBlock VerticalAlignment="Center" FontSize="12" Foreground="{StaticResource DimBrush}"
+                       Text="Nhấp đúp để chép lại · lịch sử chỉ nằm trong RAM và mất khi thoát"/>
+        </DockPanel>
+
+        <ListBox x:Name="ClipList" Grid.Row="1" Background="Transparent" BorderThickness="0"
+                 ItemContainerStyle="{StaticResource HudListBoxItem}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 MouseDoubleClick="ClipList_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Preview}" TextTrimming="CharacterEllipsis" Margin="0,0,16,0"/>
+                        <TextBlock Grid.Column="1" Text="{Binding TimeText}" FontSize="12"
+                                   Foreground="{StaticResource DimBrush}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

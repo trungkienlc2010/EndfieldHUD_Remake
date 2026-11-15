@@ -1,0 +1,46 @@
+<UserControl x:Class="EndfieldHud.Modules.SystemPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="32,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,16">
+            <TextBlock x:Name="BigClock" FontSize="64" FontWeight="Light"/>
+            <TextBlock x:Name="DateText" FontSize="15" Foreground="{StaticResource DimBrush}"/>
+        </StackPanel>
+
+        <UniformGrid Grid.Row="1" Columns="2" Rows="2">
+            <Border Style="{StaticResource Card}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="CPU" FontSize="12" Foreground="{StaticResource DimBrush}"/>
+                    <TextBlock x:Name="CpuText" FontSize="30" Margin="0,4,0,10"/>
+                    <ProgressBar x:Name="CpuBar"/>
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource Card}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="RAM" FontSize="12" Foreground="{StaticResource DimBrush}"/>
+                    <TextBlock x:Name="RamText" FontSize="30" Margin="0,4,0,10"/>
+                    <ProgressBar x:Name="RamBar"/>
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource Card}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Ổ HỆ THỐNG" FontSize="12" Foreground="{StaticResource DimBrush}"/>
+                    <TextBlock x:Name="DiskText" FontSize="30" Margin="0,4,0,10"/>
+                    <ProgressBar x:Name="DiskBar"/>
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource Card}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="BatteryLabel" Text="PIN" FontSize="12" Foreground="{StaticResource DimBrush}"/>
+                    <TextBlock x:Name="BatteryText" FontSize="30" Margin="0,4,0,10"/>
+                    <ProgressBar x:Name="BatteryBar"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+    </Grid>
+</UserControl>
